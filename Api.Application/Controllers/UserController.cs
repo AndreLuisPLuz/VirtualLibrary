@@ -1,14 +1,15 @@
-﻿using Api.Domain.DataTransfer.Answer;
-using Api.Domain.DataTransfer.Payload;
+﻿using Api.Domain.DataTransfer.Payload;
 using Api.Domain.Entities;
 using Api.Domain.Interfaces;
 using Api.Domain.Interfaces.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection;
+using Newtonsoft.Json;
 
 namespace Api.Application.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("/api/v1/user")]
     public class UserController : ControllerBase
     {
@@ -17,8 +18,7 @@ namespace Api.Application.Controllers
                 [FromServices] IUserService service,
                 [FromBody] UserPayload payload)
         {
-            User user = payload.BuildEntity();
-            IDataTransfer<User>? createdUser = await service.CreateAsync(user);
+            IDataTransfer<User>? createdUser = await service.CreateAsync(payload);
 
             if (createdUser == null)
                 return BadRequest();
@@ -30,8 +30,8 @@ namespace Api.Application.Controllers
         public async Task<ActionResult> fetchAllUsers(
                 [FromServices] IUserService service)
         {
-            var allUsers = await service.FetchAllAsync();
-            return Ok(allUsers);
+            ICollection<IDataTransfer<User>> allUsers = await service.FetchAllAsync();
+            return Ok(JsonConvert.SerializeObject(allUsers));
         }
 
         [HttpGet]

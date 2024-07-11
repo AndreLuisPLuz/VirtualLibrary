@@ -11,19 +11,22 @@ namespace Api.Services.Services
 {
     public class UserService : IUserService
     {
-        private readonly IRepository<User> _repository;
+        private readonly UserRepository _repository;
         private readonly IMapper _mapper;
 
         public UserService(IMapper mapper)
         {
-            _repository = new BaseRepository<User>(new AppDbContext());
+            _repository = new UserRepository(new AppDbContext());
             _mapper = mapper;
         }
 
-        public async Task<IDataTransfer<User>?> CreateAsync(User user)
+        public async Task<IDataTransfer<User>?> CreateAsync(UserPayload payload)
         {
             try
             {
+                User? user = new();
+                _mapper.Map(payload, user);
+
                 User? newUser =  await _repository.CreateAsync(user);
                 if (newUser is not null)
                 {
@@ -88,13 +91,21 @@ namespace Api.Services.Services
             }
         }
 
+        public async Task<User?> FetchByUsernameAsync(String email)
+        {
+            try
+            {
+                return await _repository.FetchOneByEmailAsync(email);
+            }
+            catch { return null; }
+        }
+
         public async Task<ICollection<IDataTransfer<User>>> FetchAllAsync()
         {
             try
             {
                 var allUsers = await _repository.FetchAllAsync();
-                return allUsers.Select(user =>
-                    UserDataTransfer.BuildFromEntity(user)).ToList();
+                return allUsers.Select(UserDataTransfer.BuildFromEntity).ToList();
             }
             catch (Exception)
             {

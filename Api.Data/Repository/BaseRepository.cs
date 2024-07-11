@@ -9,7 +9,7 @@ namespace Api.Data.Repository
     public class BaseRepository<T> : IRepository<T> where T : BaseEntity
     {
         protected readonly AppDbContext _context;
-        private readonly DbSet<T> _dbSet;
+        protected readonly DbSet<T> _dbSet;
 
         public BaseRepository(AppDbContext context)
         {

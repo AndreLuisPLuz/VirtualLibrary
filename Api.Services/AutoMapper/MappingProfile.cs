@@ -10,6 +10,8 @@ namespace Api.Services.AutoMapper
         {
             CreateMap<UserPayload, User>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore());
+
+            CreateMap<GenderPayload, Gender>();
         }
     }
 }
