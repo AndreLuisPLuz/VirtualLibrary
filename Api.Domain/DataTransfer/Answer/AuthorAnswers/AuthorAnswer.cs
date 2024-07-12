@@ -1,7 +1,7 @@
 ﻿using Api.Domain.Entities;
 using Api.Domain.Interfaces.Representations;
 
-namespace Api.Domain.DataTransfer.Answer
+namespace Api.Domain.DataTransfer.Answer.AuthorAnswers
 {
     public record AuthorAnswer(
         Guid Id,

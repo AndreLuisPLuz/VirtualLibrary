@@ -1,6 +1,6 @@
 ﻿using Api.Data.Context;
 using Api.Data.Repository;
-using Api.Domain.DataTransfer.Answer;
+using Api.Domain.DataTransfer.Answer.AuthorAnswers;
 using Api.Domain.DataTransfer.Payload.Author;
 using Api.Domain.Entities;
 using Api.Domain.Interfaces.Representations;
@@ -51,7 +51,7 @@ namespace Api.Services.Services
                 Author? fetchedAuthor = await _repository.FetchAsync(id);
                 if (fetchedAuthor is not null)
                 {
-                    return AuthorAnswer.BuildFromEntity(fetchedAuthor);
+                    return AuthorSingleAnswer.BuildFromEntity(fetchedAuthor);
                 }
                 else
                 {
