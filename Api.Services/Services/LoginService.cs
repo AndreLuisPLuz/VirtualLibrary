@@ -1,6 +1,6 @@
 ﻿using Api.Data.Context;
 using Api.Data.Repository;
-using Api.Domain.DataTransfer.Payload;
+using Api.Domain.DataTransfer.Payload.Login;
 using Api.Domain.Entities;
 using Api.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Identity;

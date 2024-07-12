@@ -1,6 +1,6 @@
 ﻿using Api.Domain.Entities;
 
-namespace Api.Domain.Interfaces
+namespace Api.Domain.Interfaces.Representations
 {
     public interface IPayload<T> where T : BaseEntity
     {

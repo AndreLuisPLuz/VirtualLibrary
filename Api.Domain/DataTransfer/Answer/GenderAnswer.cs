@@ -1,5 +1,5 @@
 ﻿using Api.Domain.Entities;
-using Api.Domain.Interfaces;
+using Api.Domain.Interfaces.Representations;
 
 namespace Api.Domain.DataTransfer.Answer
 {

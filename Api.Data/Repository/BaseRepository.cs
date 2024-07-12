@@ -1,8 +1,10 @@
 ﻿using Api.Data.Context;
 using Api.Domain.Entities;
 using Api.Domain.Interfaces;
+using Api.Domain.Requests.Pagination;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System.Collections;
 
 namespace Api.Data.Repository
 {
@@ -119,6 +121,30 @@ namespace Api.Data.Repository
             {
                 throw;
             }
+        }
+
+        public async Task<ICollection<T>?> FetchPaginatedAsync(
+            PaginationParams pagination)
+        {
+            try
+            {
+                ICollection<T> records = await _dbSet.Skip(
+                        pagination.PageSize
+                        * pagination.PageNumber - 1)
+                    .Take(pagination.PageSize)
+                    .ToListAsync();
+
+                return records;
+            }
+            catch
+            {
+                return new List<T>();
+            }
+        }
+
+        public async Task<int> Count()
+        {
+            return await _dbSet.CountAsync();
         }
     }
 }

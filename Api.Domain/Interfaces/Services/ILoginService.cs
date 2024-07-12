@@ -1,4 +1,4 @@
-﻿using Api.Domain.DataTransfer.Payload;
+﻿using Api.Domain.DataTransfer.Payload.Login;
 
 namespace Api.Domain.Interfaces.Services
 {

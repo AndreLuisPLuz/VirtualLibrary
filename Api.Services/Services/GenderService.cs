@@ -1,9 +1,9 @@
 ﻿using Api.Data.Context;
 using Api.Data.Repository;
 using Api.Domain.DataTransfer.Answer;
-using Api.Domain.DataTransfer.Payload;
+using Api.Domain.DataTransfer.Payload.Gender;
 using Api.Domain.Entities;
-using Api.Domain.Interfaces;
+using Api.Domain.Interfaces.Representations;
 using Api.Domain.Interfaces.Services;
 using AutoMapper;
 

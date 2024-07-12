@@ -1,4 +1,5 @@
 ﻿using Api.Domain.Entities;
+using Api.Domain.Requests.Pagination;
 
 namespace Api.Domain.Interfaces
 {
@@ -12,5 +13,7 @@ namespace Api.Domain.Interfaces
         Task<bool> DeleteAsync(Guid id);
         Task<T?> FetchAsync(Guid id);
         Task<ICollection<T>> FetchAllAsync();
+        Task<ICollection<T>> FetchPaginatedAsync(PaginationParams pagination);
+        Task<int> Count();
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Api.Domain.Entities;
 
-namespace Api.Domain.Interfaces
+namespace Api.Domain.Interfaces.Representations
 {
     public interface IDataTransfer<T> where T : BaseEntity
     {

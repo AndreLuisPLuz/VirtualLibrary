@@ -1,5 +1,5 @@
 ﻿using Api.Domain.DataTransfer.Answer;
-using Api.Domain.DataTransfer.Payload;
+using Api.Domain.DataTransfer.Payload.Login;
 using Api.Domain.DataTransfer.Session;
 using Api.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;

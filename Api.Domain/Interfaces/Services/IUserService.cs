@@ -1,5 +1,6 @@
-﻿using Api.Domain.DataTransfer.Payload;
+﻿using Api.Domain.DataTransfer.Payload.UserPayloads;
 using Api.Domain.Entities;
+using Api.Domain.Interfaces.Representations;
 
 namespace Api.Domain.Interfaces.Services
 {

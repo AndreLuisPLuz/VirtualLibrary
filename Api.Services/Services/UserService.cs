@@ -1,11 +1,11 @@
 ﻿using Api.Data.Repository;
 using Api.Data.Context;
 using Api.Domain.Entities;
-using Api.Domain.Interfaces;
 using Api.Domain.Interfaces.Services;
 using Api.Domain.DataTransfer.Answer;
-using Api.Domain.DataTransfer.Payload;
 using AutoMapper;
+using Api.Domain.Interfaces.Representations;
+using Api.Domain.DataTransfer.Payload.UserPayloads;
 
 namespace Api.Services.Services
 {
