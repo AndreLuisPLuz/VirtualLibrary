@@ -38,7 +38,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpGet]
-        [Route("/{id}")]
+        [Route("{id}")]
         async public Task<ActionResult> getOne(
                 [FromServices] IAuthorService service,
                 [FromRoute] Guid id)
@@ -48,11 +48,11 @@ namespace Api.Application.Controllers
             if (result == null)
                 return BadRequest();
 
-            return Ok(result);
+            return Ok(JsonConvert.SerializeObject(result));
         }
 
         [HttpPut]
-        [Route("/{id}")]
+        [Route("{id}")]
         async public Task<ActionResult> updateAuthor(
                 [FromServices] IAuthorService service,
                 [FromRoute] Guid id,
@@ -63,7 +63,7 @@ namespace Api.Application.Controllers
             if (result == null)
                 return BadRequest();
 
-            return Ok(result);
+            return Ok(JsonConvert.SerializeObject(result));
         }
     }
 }

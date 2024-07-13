@@ -53,6 +53,7 @@ namespace Application
             builder.Services.AddScoped(typeof(IGenderService), typeof(GenderService));
             builder.Services.AddScoped(typeof(ILoginService), typeof(LoginService));
             builder.Services.AddScoped(typeof(IAuthorService), typeof(AuthorService));
+            builder.Services.AddScoped(typeof(IBookService), typeof(BookService));
 
             builder.Services.AddControllers();
             // Additional configurations like DbContext, Authentication, etc.

@@ -1,4 +1,5 @@
 ﻿using Api.Domain.DataTransfer.Payload.Author;
+using Api.Domain.DataTransfer.Payload.BookPayloads;
 using Api.Domain.DataTransfer.Payload.Gender;
 using Api.Domain.DataTransfer.Payload.UserPayloads;
 using Api.Domain.Entities;
@@ -16,6 +17,8 @@ namespace Api.Services.AutoMapper
             CreateMap<GenderPayload, Gender>();
 
             CreateMap<AuthorPayload, Author>();
+
+            CreateMap<BookCreatePayload, Book>();
         }
     }
 }
