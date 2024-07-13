@@ -23,23 +23,38 @@ A camada de Serviços faz o uso das estruturas e regras definidas no Domínio pa
 
 # Endpoints
 `POST /api/v1/login` => envia os detalhes do usuário e retorna um bearer token.
+***
 
 `POST /api/v1/user` => cria um usuário.
+
 `GET /api/v1/user/{id}` => trás os detalhes de um usuário.
+
 `PUT /api/v1/user/{id}` => atualiza os detalhes de um usuário.
+***
 
 `POST /api/v1/gender` => cria um gênero.
+
 `GET /api/v1/gender` => trás uma lista de todos os gêneros.
+
 `PUT api/v1/gender/{id}` => atualiza os detalhes de um gênero.
+***
 
 `POST /api/v1/author` => cria um autor.
+
 `GET /api/v1/author` => trás uma lista paginada de autores.
+
 `GET /api/v1/author/{id}` => trás os detalhes de um autor.
+
 `PATCH api/v1/author/{id}` => atualiza os detalhes de um autor.
+***
 
 `POST /api/v1/book` => cria um livro, sem autores ou gêneros no corpo.
+
 `POST /api/v1/book/{id}/gender/{genderId}` => adiciona um gênero a um livro existente.
+
 `POST /api/v1/book/{id}/author/{authorId}` => adiciona um gênero a um livro existente.
+
 `GET /api/v1/book` => trás uma lista paginadas de livros.
+
 `GET /api/v1/book/{id}` => trás os detalhes de um livro.
 `DELETE /api/v1/book/{bookId}/gender/{genderId}` => remove um gênero de um livro existente.
